@@ -21,7 +21,7 @@ I struggled quite a bit to set up a local PC environment for deep learning that 
 
 ## Components to Install
 
-![Components to Install](https://prod-files-secure.s3.us-west-2.amazonaws.com/e28e7356-6f25-4b9f-8a06-673d433f3b1d/97854e5a-5d40-44cd-90aa-0631155b4bcf/image.png)
+![Components to Install](./images/docker.png)
 
 - **WSL2**: Necessary to run Docker
 - **Ubuntu**: Linux distribution
