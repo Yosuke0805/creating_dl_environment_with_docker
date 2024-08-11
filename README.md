@@ -131,7 +131,7 @@ I struggled quite a bit to set up a local PC environment for deep learning that 
     2. Start the container using docker compose
         
         ```bash
-        docker-compose up
+        docker compose up
         ```
         
     3. Open Jupyter in your browser and check if the GPU is accessible.
