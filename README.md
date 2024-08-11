@@ -28,7 +28,7 @@ I struggled quite a bit to set up a local PC environment for deep learning that 
 - **NVIDIA CUDA (Compute Unified Device Architecture) Driver**: Low-level software that utilizes GPU's parallel processing capabilities to achieve high-performance computing, providing an interface between GPU and applications. You need to install a specific version for your GPU.
 - **Docker Engine**: Open-source containerization technology for building and containerizing applications. It consists of the Docker client (Docker CLI), REST API, and Docker daemon. The Docker client interacts with the REST API via the UNIX domain socket `/var/run/docker.sock`, and the Docker daemon performs actual container operations and image builds.
     
-    ![Docker Engine Architecture](https://prod-files-secure.s3.us-west-2.amazonaws.com/e28e7356-6f25-4b9f-8a06-673d433f3b1d/a22c6596-68b8-48e0-afef-1e06f272bdda/image.png)
+    ![Docker Engine Architecture](images/docker_component.png)
     
 - **NVIDIA Container Toolkit (CUDA toolkit)**: Software package that provides high-level development tools and libraries for developing CUDA applications. Necessary for TensorFlow and PyTorch to use GPU.
 
@@ -42,7 +42,7 @@ I struggled quite a bit to set up a local PC environment for deep learning that 
     1. "Control Panel" → "Programs" → "Turn Windows features on or off"
     2. Check "Windows Subsystem for Linux" and "Virtual Machine Platform", then click OK
         
-        ![WSL2 Enabling](https://prod-files-secure.s3.us-west-2.amazonaws.com/e28e7356-6f25-4b9f-8a06-673d433f3b1d/fc85896e-4a1b-4ce4-8aa1-593db90a0d4d/image.png)
+        ![WSL2 Enabling](images/windows_settings.png)
         
 3. Install **WSL2 and Ubuntu**
     1. Install WSL and Ubuntu from the command prompt
@@ -57,7 +57,7 @@ I struggled quite a bit to set up a local PC environment for deep learning that 
         1. Select your GPU product name and version
         2. Choose **"Studio Drivers"** as the Download Type
         
-        ![Nvidia Driver Download](https://prod-files-secure.s3.us-west-2.amazonaws.com/e28e7356-6f25-4b9f-8a06-673d433f3b1d/55b27c8a-6900-4218-a04e-c03c6eccd184/image.png)
+        ![Nvidia Driver Download](images/nvidia_driver.png)
         
     2. Run the installer
         1. Follow the installation steps referring to the following site:
@@ -89,7 +89,7 @@ I struggled quite a bit to set up a local PC environment for deep learning that 
     sudo docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
     ```
     
-    ![Nvidia-smi Output](https://prod-files-secure.s3.us-west-2.amazonaws.com/e28e7356-6f25-4b9f-8a06-673d433f3b1d/7824fca1-2a59-4f70-93ee-2870e02e5694/image.png)
+    ![Nvidia-smi Output](images/result_of_nvidia_smi.png)
     
 7. Start Docker daemon
     1. Configure Docker daemon to recognize NVIDIA container runtime using CUDA toolkit
