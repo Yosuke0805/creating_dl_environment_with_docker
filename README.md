@@ -52,7 +52,7 @@ I struggled quite a bit to set up a local PC environment for deep learning that 
         ```
         
     2. Create username and password
-4. Install **Nvidia driver for Windows** from the following site (order may vary with step 2)
+4. Install **Nvidia driver for Windows** from the following site depending on your GPU spec
     1. https://www.nvidia.com/download/index.aspx
         1. Select your GPU product name and version
         2. Choose **"Studio Drivers"** as the Download Type
