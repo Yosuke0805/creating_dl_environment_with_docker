@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  pytorch-jupyter:
+    image: nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+    container_name: pytorch-jupyter # Rename here to your container name
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    command: >
+      /bin/bash -c "
+      apt-get update &&
+      apt-get install -y python3 python3-pip openssh-server &&
+      mkdir /var/run/sshd &&
+      echo 'root:password' | chpasswd &&
+      sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      service ssh start &&
+      pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 &&
+      pip install jupyterlab &&
+      jupyter lab --ip='*' --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''"
+    ports:
+      - "8888:8888"
+      - "2222:22"  # Port mapping for SSH access
+    volumes:
+      - ./target:/workspace
+    working_dir: /workspace
